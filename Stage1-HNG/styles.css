@@ -1,24 +1,28 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #464545, black);
+    background-repeat: no-repeat;
     margin: 0%;
     padding: 0%;
     height: 100vh;
     width: 100vw;
     color: #fff;
     overflow-y: hidden;
+    overscroll-behavior:unset;
+    
 }
 
 .hero-section{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .container {
     height: 100%;
     width: 100%;
     margin: 0 auto;
-    background: linear-gradient(to right, #464545, black);
+   
     box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
     text-align: left;
 }
@@ -94,3 +98,9 @@ a{
     padding: 0.18em 1.8em;
 }
 
+@media (max-width: 767px) { 
+    body {
+        background: black; 
+        background-repeat: no-repeat;
+    }
+}

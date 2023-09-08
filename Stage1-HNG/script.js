@@ -6,10 +6,25 @@ function updateDateTime() {
     document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = currentDayOfTheWeek;
 
     const currentUTCTime = currentDate.toUTCString();
-    document.querySelector('[data-testid="currentUTCTime"]').textContent = currentUTCTime;
+    document.querySelector('[data-testid="currentUTCFullTime"]').textContent = currentUTCTime;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     updateDateTime(); 
     setInterval(updateDateTime, 500); 
 });
+
+
+function getCurrentTimeInMilliseconds() {
+    return new Date().getTime();
+}
+
+function updateCurrentTime() {
+    const currentTimeMs = getCurrentTimeInMilliseconds();
+    const timeContainer = document.getElementById('timeContainer');
+    timeContainer.innerText = `Current Time in Milliseconds: ${currentTimeMs}`;
+}
+
+setInterval(updateCurrentTime, 1000);
+
+updateCurrentTime();
