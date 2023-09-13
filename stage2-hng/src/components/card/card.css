@@ -68,8 +68,8 @@
     line-height: 2em;
     padding-top: 0.3em;
 }
-.kkk{
-   
+.card__releaseDate{
+    color: #796f6f;
 }
 .cards__title{
     
@@ -89,8 +89,29 @@
     
 }
 
+.card__favorite{
+    position:absolute;
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding-left: 0.5em;
+}
+.card__favIcon{
+    background-color: rgba(242, 242, 242, 0.496);
+    padding: 0.4em;
+    border-radius: 2.6em;
+}
+.card__favIcon img{
+    width: 3.2em;
+}
+
 .card__icon2{
     height:1.2em;
     display: inline;
     margin-left: 40%;
+}
+.card__genre{
+ color: #796f6f;
 }

@@ -7,6 +7,7 @@
     background-color: transparent !important;
     position: absolute;
     z-index: 1000;
+    width: 90%;
 }
 
 .headerLeft, .headerRight {
@@ -15,6 +16,63 @@
     background-color: transparent !important;
 
 }
+
+.search__bar{
+    border: 2px solid white;
+    min-width: 30%;
+    min-height: 2em;
+    border-radius: 0.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search__input{
+    width: 90%;
+    min-height: 2em;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+}
+.search__input:focus{
+    border: none;
+    outline: none;
+
+}
+.search__input::placeholder{
+    color: white;
+}
+
+.signIn__section{
+    min-width: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signIn__section span{
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.signIn__section img{
+    cursor: pointer;
+}
+.search__icon{
+    height: 1.45em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 a > span{
     margin: 0 30px;

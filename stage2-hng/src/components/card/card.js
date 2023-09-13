@@ -23,17 +23,22 @@ const Cards = ({movie}) => {
             </SkeletonTheme>
         </div>
         :
-        <Link to={`/movie/${movie.id}`} style={{textDecoration:"none", color:"white"}}>
-            <div className="cards">
+        <Link to={`/movie/${movie.id}`} style={{textDecoration:"none", color:"white"}} >
+            <div className="cards flex-item">
+            <div className="card__favorite">
+                <span>hfesdjk</span>
+                        <span className="card__favIcon"> <img className="" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694611062/Zuri-HNG/Heart_cb3x0k.svg"/> </span>
+                    </div>
                 <img className="cards__img" src={`https://image.tmdb.org/t/p/original${movie?movie.poster_path:""}`} />
                   <div className="card__details">
-                       <div className="kkk">{movie?movie.release_date:""}</div>  
+                    
+                       <div className="card__releaseDate">{movie?movie.release_date:""}</div>  
                         <div className="cards__title">{movie ? movie.original_title: ""}</div>
                          <div>
                               <img className="card__icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" />
                                <span className="card__ratings">{movie?movie.vote_average * 10 + ".0 / 100":""}</span>
-                               <img className="card__icon2" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694592596/Zuri-HNG/PngItem_1381056_1_k3vbro.svg" />
-                               <div className="card__title">{movie?movie.genre:""}</div>
+                               <img className="card__icon2" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694592596/Zuri-HNG/PngItem_1381056_1_k3vbro.svg" /> <span>%90</span>
+                               <div className="card__genre">{movie?movie.genre +"" : ""}</div>
                          </div>
                    </div>
                 <div className="cards__overlay">
