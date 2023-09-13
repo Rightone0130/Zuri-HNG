@@ -26,6 +26,16 @@ const Cards = ({movie}) => {
         <Link to={`/movie/${movie.id}`} style={{textDecoration:"none", color:"white"}}>
             <div className="cards">
                 <img className="cards__img" src={`https://image.tmdb.org/t/p/original${movie?movie.poster_path:""}`} />
+                  <div className="card__details">
+                       <div className="kkk">{movie?movie.release_date:""}</div>  
+                        <div className="cards__title">{movie ? movie.original_title: ""}</div>
+                         <div>
+                              <img className="card__icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png" />
+                               <span className="card__ratings">{movie?movie.vote_average * 10 + ".0 / 100":""}</span>
+                               <img className="card__icon2" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694592596/Zuri-HNG/PngItem_1381056_1_k3vbro.svg" />
+                               <div className="card__title">{movie?movie.genre:""}</div>
+                         </div>
+                   </div>
                 <div className="cards__overlay">
                     <div className="card__title">{movie?movie.original_title:""}</div>
                     <div className="card__runtime">
@@ -33,7 +43,10 @@ const Cards = ({movie}) => {
                         <span className="card__rating">{movie?movie.vote_average:""}<i className="fas fa-star" /></span>
                     </div>
                     <div className="card__description">{movie ? movie.overview.slice(0,118)+"..." : ""}</div>
+                    
                 </div>
+                     
+               
             </div>
         </Link>
     }

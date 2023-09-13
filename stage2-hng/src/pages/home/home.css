@@ -1,5 +1,6 @@
 .posterImage{
-    height: 600px;
+    /* margin-top:-20rem; */
+    height: 800px;
 }
 
 .posterImage > img {
@@ -10,13 +11,12 @@
 
 .posterImage__overlay {
     position: absolute;
-    padding: 5rem;
+    padding: 0 5rem;
     bottom: 0px;
     height: 70%;
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: flex-end;
     align-items: flex-start;
     background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
     opacity: 1;
@@ -32,6 +32,7 @@
     font-size: 4rem;
     margin-bottom: 0.4rem;
     text-align: left;
+    max-width:40%;
 }
 
 .posterImage__runtime {
@@ -49,5 +50,11 @@
     margin-bottom: 0.25rem;
     display: flex;
     text-align: left;
-    width: 50%;
+    width:25%;
+}
+.callToAction{
+    background-color: #BE123C;
+    margin-left: 0;
+    padding: 0.9em 2em;
+    border-radius: 0.5em;
 }

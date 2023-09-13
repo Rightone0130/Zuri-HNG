@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
 import MovieList from "../../components/movieList/movieList";
+import Header from '../../components/header/Header';
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
     return (
         <>
             <div className="poster">
+            
                 <Carousel
                     showThumbs={false}
                     autoPlay={true}
@@ -25,7 +27,9 @@ const Home = () => {
                     infiniteLoop={true}
                     showStatus={false}
                 >
+                    
                     {
+                        
                         popularMovies.map(movie => (
                             <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} >
                                 <div className="posterImage">
@@ -41,6 +45,9 @@ const Home = () => {
                                         </span>
                                     </div>
                                     <div className="posterImage__description">{movie ? movie.overview : ""}</div>
+                                       <Link to={`/movies/${movie.id}`} style={{textDecoration:"none", color:"white", marginTop:"2rem"}}> 
+                                           <span className="callToAction">WATCH TRAILER</span>
+                                      </Link>
                                 </div>
                             </Link>
                         ))
