@@ -12,14 +12,14 @@ margin:  2.5rem;
     grid-template-columns: repeat(4, 1fr); 
     gap: 1rem;  */
     display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    flex-wrap: wrap; 
     justify-content: space-between;
   
 }
 .flex-item {
-    margin: 1rem; /* Add spacing between items */
-    box-sizing: border-box; /* Ensure padding and border don't increase width */
-    background-color: #f0f0f0; /* Just for demonstration */
-    text-align: center; /* Center content horizontally */
+    margin: 1rem; 
+    box-sizing: border-box; 
+    background-color: #f0f0f0; 
+    text-align: center;
    
   }

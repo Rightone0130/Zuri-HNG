@@ -5,6 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
 import MovieList from "../../components/movieList/movieList";
 import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
 const Home = () => {
 
@@ -19,7 +20,7 @@ const Home = () => {
     return (
         <>
             <div className="poster">
-            
+            <Header />
                 <Carousel
                     showThumbs={false}
                     autoPlay={true}
@@ -32,6 +33,7 @@ const Home = () => {
                         
                         popularMovies.map(movie => (
                             <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} >
+                                   
                                 <div className="posterImage">
                                     <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
                                 </div>
@@ -49,11 +51,13 @@ const Home = () => {
                                            <span className="callToAction">WATCH TRAILER</span>
                                       </Link>
                                 </div>
+                                
                             </Link>
                         ))
                     }
                 </Carousel>
                 <MovieList />
+                <Footer/>
             </div>
         </>
     )
