@@ -63,13 +63,13 @@ const MovieDetails = () => {
 
                  <div className="movieDetails__mainContent">
                      < div className="mevieDetails__tepDetails"> 
-                        <span className="movieDetails__title movieDetails__common">{currentMovieDetail ? currentMovieDetail.original_title : ""}{currentMovieDetail ? ": " + currentMovieDetail.tagline : ""}</span>
+                        <span data-testid="movie-title" className="movieDetails__title movieDetails__common">{currentMovieDetail ? currentMovieDetail.original_title : ""}{currentMovieDetail ? ": " + currentMovieDetail.tagline : ""}</span>
                         <span className="movieDetails__dot movieDetails__common">•</span>
-                        <span className="movieDetails__common">{currentMovieDetail ? currentMovieDetail.release_date : ""}</span>
+                        <span data-testid="movie-release-date" className="movieDetails__common">{currentMovieDetail ? currentMovieDetail.release_date : ""}</span>
                         <span className="movieDetails__dot movieDetails__common">•</span>
                         <span className="movieDetails__common"> PG-13</span>
                         <span className="movieDetails__dot movieDetails__common">•</span>
-                        <span className="movieDetails__common">{currentMovieDetail ? formatRuntime(currentMovieDetail.runtime) : ""}</span>
+                        <span data-testid="movie-runtime" className="movieDetails__common">{currentMovieDetail ? /*formatRuntime(currentMovieDetail.runtime)*/ currentMovieDetail.runtime : ""}</span>
                         <span className="movieDetails__genre">{
                                 currentMovieDetail && currentMovieDetail.genres
                                 ? 
@@ -84,7 +84,7 @@ const MovieDetails = () => {
                        <div className="mevieDetails__moreDetails">
 
                         <div className="moreDetails__right">
-                            <span className="movieDetails__overview">{currentMovieDetail ? currentMovieDetail.overview : ""}</span>
+                            <span data-testid="movie-overview" className="movieDetails__overview">{currentMovieDetail ? currentMovieDetail.overview : ""}</span>
                             <div>
                                 <div className="producers">Director : <span>eyrtrwt6y</span></div>
                                 <div className="producers">Writers : <span>yrtttttyw</span></div>
@@ -101,12 +101,14 @@ const MovieDetails = () => {
                         <div className="show__times">See Showtimes</div>
                         <div className="more__watch">More watch options</div>
                         <div className="more__content">
+                        <Link to="/movies/type/top_rated" style={{textDecoration: "none"}}><span>Top Rated</span>
                         <div className="movie__poster_container">
                         <img className="movie__poster_image" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
                         <img className="movie__poster_image" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
                         <img className="movie__poster_image" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
                       
                         </div>
+                        </Link>
                         <div className="best__movies">The Best Movies and Shows in September</div>
                         </div>
                         </div>
