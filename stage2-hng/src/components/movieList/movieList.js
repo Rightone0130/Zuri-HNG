@@ -18,13 +18,27 @@ const MovieList = () => {
 
     const getData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US`)
-        .then(res => res.json())
-        .then(data => setMovieList(data.results))
-    }
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setMovieList(data.results);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            window.location.href = "/asasi";
+          });
+      };
+
+      
+      
 
     return (
         <div className="movie__list">
-            <h2 className="list__title">{(type ? type : "POPULAR").toUpperCase()}</h2>
+            <h2 className="list__title">{(type ? type : "Featured Movie")}</h2>
             <div className="list__cards">
                 {
                     movieList.map(movie => (

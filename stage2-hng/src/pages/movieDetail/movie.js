@@ -13,9 +13,22 @@ const Movie = () => {
 
     const getData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US`)
-        .then(res => res.json())
-        .then(data => setMovie(data))
-    }
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setMovie(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            // Redirect to the specified location
+            window.location.href = "/error";
+          });
+      };
+      
 
     return (
         <div className="movie">

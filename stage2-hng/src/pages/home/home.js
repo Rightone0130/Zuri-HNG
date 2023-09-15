@@ -13,10 +13,21 @@ const Home = () => {
 
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US")
-        .then(res => res.json())
-        .then(data => setPopularMovies(data.results))
-    }, [])
-
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setPopularMovies(data.results);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            window.location.href = "/error";
+          });
+      }, []);
+      
     return (
         <>
             <div className="poster">
@@ -27,13 +38,14 @@ const Home = () => {
                     transitionTime={3}
                     infiniteLoop={true}
                     showStatus={false}
+                    
                 >
                     
                     {
                         
                         popularMovies.map(movie => (
                             <Link style={{textDecoration:"none",color:"white"}} to={`/movie/${movie.id}`} >
-                                   
+                                   <div className="home__topContainer">
                                 <div className="posterImage">
                                     <img src={`https://image.tmdb.org/t/p/original${movie && movie.backdrop_path}`} />
                                 </div>
@@ -50,6 +62,7 @@ const Home = () => {
                                        <Link to={`/movies/${movie.id}`} style={{textDecoration:"none", color:"white", marginTop:"2rem"}}> 
                                            <span className="callToAction">WATCH TRAILER</span>
                                       </Link>
+                                </div>
                                 </div>
                                 
                             </Link>

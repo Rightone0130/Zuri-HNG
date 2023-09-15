@@ -25,6 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(141, 134, 134, 0.397);
 }
 .search__input{
     width: 90%;
@@ -93,3 +94,51 @@ a > span:hover {
     font-size: 2rem;
 }
 
+@media screen and (max-width: 767px) {
+
+    .header {
+        margin: 0 1rem;
+        padding: 0.6rem 0;
+        align-items: center;
+        display: flex;
+        justify-content:space-between;
+        background-color: transparent !important;
+        position: absolute;
+        z-index: 1000;
+        width: 90%;
+    }
+
+    .header__icon{
+        width: 4rem;
+    }
+
+    .search__bar{
+        border: 0.1em solid white;
+        font-size: 0.38em;
+        min-width: 38%;
+        min-height: 2em;
+        background-color: rgba(141, 134, 134, 0.397);
+    }
+    .search__input{
+        width: 90%;
+        min-height: 2em;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 0.8em;
+    }
+    .signIn__section span{
+        margin-right: 0.2rem;
+        font-size: 0.5em;
+    }
+
+    .signIn__section img{
+        width: 0.9rem;
+    }
+
+    .search__icon{
+        width: 1em;
+    }
+
+
+}

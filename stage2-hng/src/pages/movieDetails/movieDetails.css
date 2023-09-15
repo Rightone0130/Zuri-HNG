@@ -159,3 +159,107 @@
     justify-content: center;
     align-items: center;
 }
+.movieDetails__footer{
+    display:none
+}
+
+@media screen and (max-width: 767px) {
+
+    .movieDetails__content{
+        margin-left: 0%;
+    }
+
+    .movieDetails__trailer{
+        height: 12rem;
+        border-radius: 1rem;
+    }
+    
+    .movieDetails__clip{
+        height: 12rem;
+    }
+
+
+    .movieDetails__mainContent{
+        padding: 0.7em 1.2em;
+    }
+
+    .mevieDetails__tepDetails{
+        width: 80%;
+        font-size: 0.3em;
+        white-space: nowrap;
+    }
+    
+    .movieDetails__common{
+        margin-right: 0.8em;
+        font-size: 1.1em;
+    }
+
+    .movieDetails__genre{
+        color: rgb(219, 62, 62);
+        font-weight: 700;
+        font-size: 0.5em;
+    }
+    .mevieDetails__moreDetails{
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.9rem;
+    }
+    .moreDetails__right{
+        font-size: 0.5em;
+        text-align: left;
+        font-weight: 700;
+        color: #4e4343;
+     
+    }
+
+    .movieDetails__footer{
+        display:block
+    }
+
+
+    .show__times{
+        padding: 3% 20%;.more__content{
+
+            border-radius: 0.5em;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        font-size: 0.26em;
+        margin-bottom: 0.9em;
+        max-width: 2em;
+    }
+
+
+.more__watch{
+    padding: 2.7% 20%;
+    font-size: 0.26em;
+    margin-bottom: 0.9em;
+    max-width: 2em;
+}
+.movie__poster_container{
+    min-width: 30%;
+    display: flex;
+    
+    justify-content: space-between;
+   
+
+}
+
+.movie__poster_image{
+    width:6.39em;
+}
+
+.best__movies{
+    background-color: rgba(0, 0, 0, 0.633);
+    margin-top: -10%;
+    color: rgb(224, 224, 224);
+    height: 3em;
+    font-weight: 700;
+    font-size: 0.3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+}

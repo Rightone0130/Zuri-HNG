@@ -5,10 +5,6 @@ import { Link } from "react-router-dom"
 const Footer = () => {
     return (
         <>
-        {/* <Link>
-
-        </Link> */}
-
         <div className="footer__container">
             <div className="footer__icon">
                 <img className="social__icon" alt="facebook" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694598741/Zuri-HNG/fa-brands_facebook-square_czinij.svg" />

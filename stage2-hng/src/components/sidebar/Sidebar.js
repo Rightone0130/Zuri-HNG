@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <div className={`sidebar ${isActive ? 'active' : ''}`}>
       <div className="logo">
-      <Link to="/"><img className="sidebar__header__icon" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694503486/Zuri-HNG/Logo_edeb02.svg" /></Link>
+      <Link to="/"><img className="sidebar__header__icon" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694768518/Zuri-HNG/Logo_1_xmaijr.svg" /></Link>
       </div>
       <div className="menu">
         <ul>

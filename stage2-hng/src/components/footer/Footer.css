@@ -23,3 +23,35 @@
     font-size: 1.3em;
     color: #2e2a2a;
 }
+
+
+
+@media screen and (max-width: 767px) {
+
+    .footer__container{
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+    .footer__icon{
+        margin-bottom: 1rem;
+     }
+     .social__icon{
+        margin: 0 0.8em;
+        height: 0.9rem;
+    }
+
+    .footer__policy{
+        font-size: 0.3em;
+    }
+    .footer__link{
+        margin: 0 0.8em;
+    }
+    .footer__copywrite{
+        margin-top: 1.3rem;
+        font-size: 0.3em;
+        color: #2e2a2a;
+    }
+    
+
+}
+

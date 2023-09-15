@@ -109,3 +109,89 @@
     margin-top:1em ;
     text-align: center;
   }
+
+
+  @media screen and (max-width: 767px) {
+    .sidebar {
+      width: 14%;
+      height: 100%;
+      background-color: #fff;
+      border: #333 1px solid;
+      border-top-right-radius: 1.94rem ;
+      border-bottom-right-radius: 1.94rem ;
+      color: #333;  
+      position: fixed;
+      left: -100%; 
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+      transition: left 0.3s ease; 
+      padding-top: 3rem;
+      
+    }
+
+    .sidebar__header__icon{
+
+      width: 4em;
+
+    }
+
+    .menu {
+      padding-top: 1.2em;
+      font-weight: 700;
+      font-size: 0.5em;
+      color: rgb(101, 97, 97);
+    }
+    .menu li span {
+      margin-right: 0.4em;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+    }
+
+    .menu li span img{
+      width:1em;
+
+
+    }
+    .movie__quizes{
+      background-color: rgb(251, 228, 228);
+      border: 2px solid  rgb(199, 109, 109);
+      margin: 0.5em 0.5em;
+      min-height: 12.5em;
+      border-radius: 0.7em;
+      padding: 2.5em 1em;
+      padding-bottom: 0em;
+      font-weight: 700;
+      font-size: 0.5em;
+      text-align: left;
+      line-height: 1em;
+      color: rgb(76, 67, 67);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+    }
+    
+    .playing__now{
+      padding-top: 0.7em;
+      font-size: 0.8em;
+      line-height: 1em;
+    }
+
+    .start__playing{
+      background-color: rgb(246, 184, 184);
+      color: rgb(173, 30, 30);
+      padding: 0.4em 1em;
+      width: fit-content;
+      font-size: 0.8em;
+      border-radius: 1em;
+      margin-top:1em ;
+      text-align: center;
+    }
+  
+      
+    
+  }

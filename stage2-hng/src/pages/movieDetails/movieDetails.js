@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react"
 import "./movieDetails.css"
 import { useParams } from "react-router-dom"
 import Sidebar from '../../components/sidebar/Sidebar';
+import { Link } from "react-router-dom"
+import Footer from '../../components/footer/Footer';
 
 const MovieDetails = () => {
     const [currentMovieDetail, setMovie] = useState()
@@ -16,9 +18,21 @@ const MovieDetails = () => {
 
     const getData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US`)
-        .then(res => res.json())
-        .then(data => setMovie(data))
-    }
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setMovie(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            window.location.href = "/error";
+          });
+      };
+      
     const formatRuntime = (minutes) => {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
@@ -104,7 +118,9 @@ const MovieDetails = () => {
 
               </div>
             
-            
+        <div className="movieDetails__footer">
+        <Footer/>
+        </div>
         </div>
     )
 }
