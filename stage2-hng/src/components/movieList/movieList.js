@@ -47,7 +47,7 @@ const MovieList = () => {
                 {
                     movieList.map(movie => (
                         <Cards movie={movie} />
-                    ))
+                    )).slice(0, 10)
                 }
             </div>
         </div>
