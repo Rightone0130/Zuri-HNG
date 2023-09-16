@@ -17,6 +17,7 @@
     object-position: 0 35%;
     border-radius: 2rem;
     overflow: hidden;
+    position: relative;
 }
 
 .movieDetails__clip{
@@ -25,6 +26,30 @@
     object-fit:cover;
     object-position: 0 35%;
 }
+
+
+.movieDetails__clip__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    .movieDetails__clip__play {
+   
+      height: 4rem;
+    }
+    
+  }
+  
+  @media screen and (max-width: 480px) {
+    .movieDetails__clip__play {
+      height: 3.6rem;
+    }
+  }
+  
 
 .movieDetails__mainContent{
     color: #333;

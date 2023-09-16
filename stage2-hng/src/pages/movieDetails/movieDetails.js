@@ -38,7 +38,6 @@ const MovieDetails = () => {
           })
           .catch((error) => {
               console.error("Error fetching data:", error);
-              // You can handle errors differently here, e.g., display an error message.
           });
   };
     return (
@@ -46,7 +45,9 @@ const MovieDetails = () => {
               <Sidebar />
               <div className="movieDetails__content">
                  <div className="movieDetails__trailer">
+                   <img className="movieDetails__clip__play" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694768518/Zuri-HNG/Frame_3_z4cm0l.svg" />
                       <img className="movieDetails__clip" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
+                     
                  </div>
 
                  <div className="movieDetails__mainContent">
