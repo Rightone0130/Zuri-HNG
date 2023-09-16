@@ -53,7 +53,12 @@ const MovieDetails = () => {
                      < div className="mevieDetails__tepDetails"> 
                         <span data-testid="movie-title" className="movieDetails__title movieDetails__common">{currentMovieDetail ? currentMovieDetail.original_title : ""}{currentMovieDetail ? ": " + currentMovieDetail.tagline : ""}</span>
                         <span className="movieDetails__dot movieDetails__common">•</span>
-                        <span data-testid="movie-release-date" className="movieDetails__common">{currentMovieDetail ? currentMovieDetail.release_date : ""}</span>
+                                          <span data-testid="movie-release-date" className="movieDetails__common">
+                                       {currentMovieDetail ? 
+                                          new Date(currentMovieDetail.release_date).toLocaleString('en-US', { timeZone: 'UTC' }) 
+                                             : ""}
+                                                  </span>
+
                         <span className="movieDetails__dot movieDetails__common">•</span>
                         <span className="movieDetails__common"> PG-13</span>
                         <span className="movieDetails__dot movieDetails__common">•</span>
