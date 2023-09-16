@@ -11,25 +11,42 @@ const Movie = () => {
         window.scrollTo(0,0)
     }, [])
 
-    const getData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US`)
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            setMovie(data);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-           
-            window.location.href = "/error";
-          });
-      };
-      
+    let apiKey; // Declare apiKey in a higher scope
 
+    useEffect(() => {
+      apiKey = process.env.REACT_APP_API_KEY;
+    
+      if (!apiKey) {
+        console.error("API key not found.");
+        return;
+      }
+    
+      // Other useEffect code here...
+    
+    }, []);
+    
+    const getData = () => {
+      if (!apiKey) {
+        console.error("API key not found.");
+        return;
+      }
+    
+      fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setMovie(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          window.location.href = "/error";
+        });
+    };
+    
     return (
         <div className="movie">
             <div className="movie__intro">

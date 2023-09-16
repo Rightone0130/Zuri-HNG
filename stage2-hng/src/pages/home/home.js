@@ -11,22 +11,32 @@ const Home = () => {
 
     const [ popularMovies, setPopularMovies ] = useState([])
 
+    let apiKey; // Declare apiKey in a higher scope
+
     useEffect(() => {
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US")
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            setPopularMovies(data.results);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-            window.location.href = "/error";
-          });
-      }, []);
+      apiKey = process.env.REACT_APP_API_KEY;
+    
+      if (!apiKey) {
+        console.error("API key not found.");
+        return;
+      }
+    
+      fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setPopularMovies(data.results);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          window.location.href = "/error";
+        });
+    }, []);
+    
       
     return (
         <>

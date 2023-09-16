@@ -6,53 +6,41 @@ import { Link } from "react-router-dom"
 import Footer from '../../components/footer/Footer';
 
 const MovieDetails = () => {
-    const [currentMovieDetail, setMovie] = useState()
-    const { id } = useParams()
-    const [showHeaderFooter, setShowHeaderFooter] = useState(true);
+  const [currentMovieDetail, setMovie] = useState();
+  const { id } = useParams();
+  const [showHeaderFooter, setShowHeaderFooter] = useState(true);
 
-    useEffect(() => {
-        getData()
-        window.scrollTo(0,0)
-        
-    }, [])
+  // Declare apiKey using const
+  const apiKey = process.env.REACT_APP_API_KEY;
 
-    const getData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US`)
+  useEffect(() => {
+      // Debug statement to check API key
+      console.log("API Key:", apiKey);
+
+      getData();
+      window.scrollTo(0, 0);
+  }, []);
+
+  const getData = () => {
+      // Debug statement to check API URL
+      const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+      console.log("API URL:", apiUrl);
+
+      fetch(apiUrl)
           .then((res) => {
-            if (!res.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return res.json();
+              if (!res.ok) {
+                  throw new Error("Network response was not ok");
+              }
+              return res.json();
           })
           .then((data) => {
-            setMovie(data);
+              setMovie(data);
           })
           .catch((error) => {
-            console.error("Error fetching data:", error);
-            window.location.href = "/error";
+              console.error("Error fetching data:", error);
+              // You can handle errors differently here, e.g., display an error message.
           });
-      };
-      
-    const formatRuntime = (minutes) => {
-        const hours = Math.floor(minutes / 60);
-        const remainingMinutes = minutes % 60;
-      
-        let formattedRuntime = "";
-      
-        if (hours > 0) {
-          formattedRuntime += hours + "h";
-        }
-      
-        if (remainingMinutes > 0) {
-          if (formattedRuntime !== "") {
-            formattedRuntime += " ";
-          }
-          formattedRuntime += remainingMinutes + "min";
-        }
-      
-        return formattedRuntime;
-      };
-
+  };
     return (
         <div className="movieDetails__container">
               <Sidebar />

@@ -10,25 +10,30 @@ const Header = () => {
   
 
 
-
-
     const fetchData = async () => {
+        const apiKey = process.env.REACT_APP_API_KEY;
+      
+        if (!apiKey) {
+          console.error("API key not found.");
+          return;
+        }
+      
         try {
           const response = await fetch(
-            `https://api.themoviedb.org/3/search/movie?api_key=16bd8644502d24eb918b4b9975ade1f1&language=en-US&query=${searchQuery}`
+            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchQuery}`
           );
-    
+      
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
-    
+      
           const data = await response.json();
           setMovieList(data.results);
         } catch (error) {
           console.error("Error fetching data:", error);
         }
       };
-    
+      
       useEffect(() => {
         if (searchQuery) {
           fetchData();
