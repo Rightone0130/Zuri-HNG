@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Movie Discovery Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Movie Discovery web application project. This application allows users to search for movies, view movie details, and save their favorite movies. It consumes data from the TMDB API and is built using React/Next.js.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before you begin, ensure you have met the following requirements:
+- Node.js: Make sure you have Node.js installed. You can download it [here](https://nodejs.org/).
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Follow these steps to run the project locally:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository to your local machine:
 
-### `npm test`
+   ```bash
+   git clone <repository_url>
+1. Navigate to the project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  cd movie-discovery-app
 
-### `npm run build`
+2. Install project dependencies:
+  
+  npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Obtain an API key from TMDB by signing up for a free account. This key will be used to fetch movie data.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Create a .env.local file in the project root and add your TMDB API key as follows:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+REACT_APP_TMDB_API_KEY=your_api_key_here
 
-### `npm run eject`
+5. Save the file.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+7. Open your web browser and visit http://localhost:3000 to access the Movie Discovery web application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Features
+Homepage: Lists the top 10 movies with movie posters, titles, and release dates.
+Search: Allows users to search for movies by title.
+Movie Details: Provides detailed information about a movie, including title, release date, runtime, and overview.
+Project Structure
+The project is organized as follows:
 
-## Learn More
+src directory: Contains the application source code.
+public directory: Contains static assets.
+Error Handling
+The application handles errors gracefully and displays meaningful error messages in case of API failures or other issues.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Hosting
+You can host this application on platforms like GitHub Pages or Netlify for public access.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributing
+If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
 
-### Code Splitting
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Note: This project was created as a part of the STAGE 2 TASK and is meant for educational purposes. It uses data from the TMDB API, and you must comply with their terms of use when hosting the application.
 
-### Analyzing the Bundle Size
+Enjoy exploring and discovering movies with the Movie Discovery web application!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Make sure to replace `<repository_url>` with the actual URL of your Git repository. Additionally, replace `your_api_key_here` in the `.env.local` section with your TMDB API key.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This README provides detailed instructions for setting up and running the project locally.

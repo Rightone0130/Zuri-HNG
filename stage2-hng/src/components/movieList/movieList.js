@@ -32,10 +32,6 @@ const MovieList = () => {
             window.location.href = "/asasi";
           });
       };
-
-      
-      
-
     return (
         <div className="movie__list">
             <h2 className="list__title">{(type ? type : "Featured Movie")}</h2>

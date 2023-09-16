@@ -90,18 +90,22 @@ const MovieDetails = () => {
                                 <div className="producers">Writers : <span>yrtttttyw</span></div>
                                 <div className="producers">Stars : <span>trertwer</span></div>
                             </div>
-
+                            <Link to="/movies/type/top_rated" style={{textDecoration: "none"}}>
                             <div className="rated__cantainer">
+                          
                                 <span className="top__Rated">Top rated movie #65</span>
                                 <span className="awards__nominations"> Awards 9 nominations</span>
                             </div>
+                            </Link>
 
                         </div>
                         <div className="moreDetails__left">
                         <div className="show__times">See Showtimes</div>
+                        <Link to="/movies/type/popular" style={{textDecoration: "none"}}>
                         <div className="more__watch">More watch options</div>
+                        </Link>
                         <div className="more__content">
-                        <Link to="/movies/type/top_rated" style={{textDecoration: "none"}}><span>Top Rated</span>
+                        <Link to="/movies/type/upcoming" style={{textDecoration: "none"}}>
                         <div className="movie__poster_container">
                         <img className="movie__poster_image" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
                         <img className="movie__poster_image" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />

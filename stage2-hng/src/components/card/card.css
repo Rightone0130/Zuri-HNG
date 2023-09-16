@@ -12,15 +12,10 @@
     display: inline-block;
     transition: transform .2s;
     position: relative;
-    
-    
-    
-    /* margin: 0.19rem; */
     cursor:pointer;
     min-width:20rem;
     height: 30rem;
     z-index:0;
-    /* border: 1px solid rgb(99, 99, 99); */
 }
 
 .cards:hover {
@@ -134,15 +129,11 @@
         display: inline-block;
         transition: transform .2s;
         position: relative;
-        
-        
-        /* margin: 0.19rem; */
         cursor:pointer;
         max-width:0.01rem;
         min-width:3.8rem;
         height: 6rem;
         z-index:0;
-        /* border: 1px solid rgb(99, 99, 99); */
     }
 
     .cards__img {

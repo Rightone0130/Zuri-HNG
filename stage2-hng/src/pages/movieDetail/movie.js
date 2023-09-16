@@ -24,7 +24,7 @@ const Movie = () => {
           })
           .catch((error) => {
             console.error("Error fetching data:", error);
-            // Redirect to the specified location
+           
             window.location.href = "/error";
           });
       };

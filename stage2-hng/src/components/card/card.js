@@ -39,7 +39,6 @@ const Cards = ({movie}) => {
             <div className="cards flex-item">
             <div className="card__favorite">
                 <span className="rightkey"> { ""}</span>
-                        {/* <span className="card__favIcon"> <img className="" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1694611062/Zuri-HNG/Heart_cb3x0k.svg"/> </span> */}
                         <span className="card__favIcon">
                 <img
                   className={`clickable-image ${isClicked ? "clicked-background" : ""}`} // Add "clicked" class when clicked
