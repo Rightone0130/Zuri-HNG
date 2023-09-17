@@ -11,7 +11,7 @@ const Home = () => {
 
     const [ popularMovies, setPopularMovies ] = useState([])
 
-    let apiKey; // Declare apiKey in a higher scope
+    let apiKey; 
 
     useEffect(() => {
       apiKey = process.env.REACT_APP_API_KEY;

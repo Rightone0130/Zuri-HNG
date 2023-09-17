@@ -7,6 +7,8 @@ const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [movieList, setMovieList] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [selectedMovieId, setSelectedMovieId] = useState(null);
+    const [shouldCloseDropdown, setShouldCloseDropdown] = useState(false);
   
 
 
@@ -41,6 +43,32 @@ const Header = () => {
           setMovieList([]); 
         }
       }, [searchQuery]);
+
+      useEffect(() => {
+        if (selectedMovieId !== null) {
+          // Close the dropdown after a delay (e.g., 2 seconds)
+          const delay = setTimeout(() => {
+            setShowDropdown(false);
+            setSelectedMovieId(null);
+            console.log("delay active");
+          }, 2000); // 2000 milliseconds = 2 seconds
+    
+          return () => clearTimeout(delay); // Clear the timeout on unmount or when selecting a new movie
+        }
+      }, [selectedMovieId]);
+
+
+      const handleResultClick = (movieId) => {
+        try {
+          setSelectedMovieId(movieId);
+          setShouldCloseDropdown(true);
+          console.log("A Movie was selected");
+        } catch (error) {
+          console.error("Error in handleResultClick:", error);
+        }
+      };
+      
+    
     return (
         <div className="header">
                 <div className="headerLeft">
@@ -64,18 +92,20 @@ const Header = () => {
       </span>
       </div>
       {showDropdown && (
-        <div className="search__dropdown">
+        <div className="search__dropdown" onClick={() => {if (shouldCloseDropdown) setShowDropdown(false);}}>
             
           {movieList.map((movie) => (
             
-            <div key={movie.id} className="search__result">
-                 <Link style={{textDecoration:"none",color:"white"}} to={`/movies/${movie.id}`} ></Link>
+            <div key={movie.id} >
+                 <Link key={movie.id} style={{textDecoration:"none",color:"black", zIndex:"100000"}} to={`/movies/${movie.id}`} onClick={() => handleResultClick(movie.id)}>
+                  <div className="search__result">
               <img className="search__img"
                 src={`https://image.tmdb.org/t/p/w92/${movie.poster_path}`}
                 alt={movie.title}
               />
-              
               <span className="search__title">{movie.title}</span>
+              </div>
+              </Link>
             </div>
           ))}
         </div>
