@@ -1,0 +1,35 @@
+.dashboard__container{
+   padding: 3%;
+   padding-top: 2%;
+   margin-left: 15rem;
+}
+
+.dashboard__head{
+    text-align: left;
+    margin-bottom: 3%;
+}
+
+
+.section__nav {
+    margin-top: 3em;
+    margin-bottom: 1em;
+}
+
+.section__nav span{
+   
+    border-radius: 25px;
+    padding: 0.2em 1em;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+    background-color: white;
+    cursor : pointer;
+}
+
+.section__nav span:hover{
+   
+    background-color: rgb(9, 163, 9);
+    color:white;                                                                                                                             
+
+}

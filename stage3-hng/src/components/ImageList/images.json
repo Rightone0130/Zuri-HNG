@@ -1,0 +1,30 @@
+{
+    "images": {
+      "1": {
+        "id": 1,
+        "url": "https://res.cloudinary.com/dcntmhgwf/image/upload/v1692283017/Bullseye/Greenland_Water_Bottle_c7twqr.webp",
+        "tags": ["Bottle", "Greenland", "Water"]
+      },
+      "2": {
+        "id": 2,
+        "url": "https://res.cloudinary.com/dcntmhgwf/image/upload/v1692283017/Bullseye/Grene_Tea_k16hvw.webp",
+        "tags": ["Tea", "Green"]
+      },
+      "3": {
+        "id": 3,
+        "url": "https://res.cloudinary.com/dcntmhgwf/image/upload/v1692283018/Bullseye/Lux_Rose_zvjrvj.webp",
+        "tags": ["Lux", "Rose"]
+      },
+      "4": {
+        "id": 4,
+        "url": "https://res.cloudinary.com/dcntmhgwf/image/upload/v1692283018/Bullseye/Lemon_Flavor_Soda_f0mnuq.webp",
+        "tags": ["Soda", "Lemon", "Flavor"]
+      },
+      "5": {
+        "id": 5,
+        "url": "https://res.cloudinary.com/dcntmhgwf/image/upload/v1692283019/Bullseye/Milk_Chocolate_Bar_raolg3.webp",
+        "tags": ["Chocolate", "Milk", "Bar"]
+      }
+    }
+  }
+  

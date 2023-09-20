@@ -1,0 +1,240 @@
+.default-background {
+    background-color: blue;
+  }
+  
+  .clicked-background {
+    background-color: red; 
+    border-radius: 25em;
+  }
+
+
+.cards {
+    display: inline-block;
+    transition: transform .2s;
+    position: relative;
+    cursor:pointer;
+    min-width:12rem;
+    height: 18rem;
+    z-index:0;
+}
+
+/* .cards:hover {
+    border-radius: 0.5em;
+    transform: scale(1.2);
+    z-index: 1000;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+} */
+
+.cards__img {
+    height: 30rem;
+}
+
+.cards__overlay {
+    position: absolute;
+    padding: 0 1rem 1rem 1rem;
+    bottom: 0rem;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: flex-end;
+    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    opacity: 0;
+    transition: opacity .2s;
+}   
+
+/* .cards__overlay:hover {
+    opacity: 1;
+} */
+
+.card__title {
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.card__runtime {
+    font-size: .75rem;
+    margin-bottom: 0.25rem;
+}
+
+.card__rating {
+    float: right;
+}
+
+.card__description {
+    font-style: italic;
+    font-size: .75rem;
+    margin-bottom: 0.25rem;
+}
+.card__details{
+    color:black;
+    text-align: left;
+    line-height: 2em;
+    padding-top: 0.3em;
+}
+.card__releaseDate{
+    color: #796f6f;
+}
+.cards__title{
+    
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    max-width: 100%;
+}
+
+.card__icon{
+    height:1.2em;
+    display: inline;
+    margin-right: 0.7em;
+
+}
+.card__ratings{
+    
+}
+
+.card__favorite{
+    position:absolute;
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding-left: 0.5em;
+}
+.card__favIcon{
+    background-color: rgba(242, 242, 242, 0.496);
+    padding: 0.4em;
+    border-radius: 2.6em;
+}
+.card__favIcon img{
+    width: 3.2em;
+}
+
+.card__icon2{
+    height:1.2em;
+    display: inline;
+    margin-left: 40%;
+}
+.card__genre{
+ color: #796f6f;
+}
+
+
+@media screen and (max-width: 767px) {
+    
+    .cards {
+        display: inline-block;
+        transition: transform .2s;
+        position: relative;
+        cursor:pointer;
+        max-width:0.01rem;
+        min-width:3.8rem;
+        height: 6rem;
+        z-index:0;
+    }
+
+    .cards__img {
+        height: 6.5em;
+    }
+    .card__favIcon{
+        background-color: rgba(242, 242, 242, 0.496);
+        padding: 0.4em;
+        border-radius: 1.6em;
+    }
+    .card__favIcon{
+        background-color: rgba(242, 242, 242, 0.496);
+        padding: 0.1em;
+        border-radius: 1em;
+        height: 0.5em;
+        display: flex;
+    }
+    
+    .card__favIcon img{
+        width: 0.6em;
+        margin: 0%;
+        padding: 0%;
+    }
+    .card__title {
+        font-weight: 900;
+        font-size: 0.5em;
+        margin-bottom: 0.4rem;
+    }
+    .cards__overlay {
+        position: absolute;
+        padding: 0 0.5rem 0.5rem 0.5rem;
+        bottom: 0rem;
+        height: 4em;
+        display: flex;
+        flex-direction: column;
+        width: 76%;
+        justify-content: flex-end;
+        background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+        opacity: 0;
+        transition: opacity .2s;
+    }   
+
+    .card__description {
+        font-size: 0.2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .card__favorite{
+        position:absolute;
+        padding-top: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        padding-left: 0.5em;
+    }
+
+    .rightkey{
+        font-size: 0.2em;
+    }
+    .card__runtime {
+        font-size: 0.2em;
+        margin-bottom: 0.25rem;
+    }
+    .cards__title{
+        
+        font-weight: 900;
+        font-size: 0.4em;
+        margin-bottom: 0.1em;
+        max-width: 100%;
+    }
+    
+    .card__icon{
+        height:0.3em;
+        display: inline;
+        margin-right: 0.7em;
+    
+    }
+    .card__releaseDate{
+        font-size: 0.3em;
+    }
+
+.card__icon2{
+    height:0.3em;
+    margin-left: 9%;
+}
+
+.card__percent{
+    font-size: 0.2em;
+}
+.card__genre{
+    font-size: 0.2em;
+}
+.card__ratings{
+    font-size: 0.2em;
+}
+
+.card__details{
+    line-height: 0.4em;
+    padding-top: 0.09em;
+}
+
+    
+}
