@@ -1,7 +1,8 @@
 import React from "react";
 import Header from '../header/Header';
 import "./landingPage.css"
-
+import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const LandingPage = () =>
 {
@@ -9,7 +10,7 @@ const LandingPage = () =>
 
     const isVisible = false;
 
-
+    const location = useLocation()
 
 
 return(
@@ -21,7 +22,9 @@ return(
         <div class="intro-content">
             <h1>Welcome to Your Image Gallery</h1>
             <p>Explore a world of captivating images</p>
-            <a href="#gallery" class="btn">View Gallery</a>
+            <Link to="/rightpics/SignIn" replace state={{from: location}} >
+            <a href="/rightpics/Dashboard" class="btn">View Gallery</a>
+            </Link>
         </div>
     </section>
     </>

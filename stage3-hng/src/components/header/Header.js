@@ -5,10 +5,9 @@ import { auth } from "../../firebase";
 
 
 
-const Header = ({ isVisible }) => {
+const Header = ({ isVisible, searchQuery, handleSearchChange  }) => {
   
   const [currentUser, setCurrentUser] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("");
     const [movieList, setMovieList] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
     const [selectedMovieId, setSelectedMovieId] = useState(null);
@@ -23,7 +22,6 @@ const Header = ({ isVisible }) => {
     const handleSignOut = async () => {
       try {
         await auth.signOut();
-        // Redirect to the index page after successful sign out
         navigate("/");
       } catch (error) {
         console.error("Error signing out:", error);
@@ -38,56 +36,11 @@ const Header = ({ isVisible }) => {
         setCurrentUser(user);
       });
 
-       // Unsubscribe when the component unmounts
     return () => unsubscribe();
   }, []);
 
-    const fetchData = async () => {
-        const apiKey = 382738723073894737448;
-      
-        if (!apiKey) {
-          console.error("API key not found.");
-          return;
-        }
-      
-        try {
-          const response = await fetch(
-            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${searchQuery}`
-          );
-      
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-      
-          const data = await response.json();
-          setMovieList(data.results);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-      
-      useEffect(() => {
-        if (searchQuery) {
-          fetchData();
-        } else {
-          setMovieList([]); 
-        }
-      }, [searchQuery]);
-
-      useEffect(() => {
-        if (selectedMovieId !== null) {
-          // Close the dropdown after a delay (e.g., 2 seconds)
-          const delay = setTimeout(() => {
-            setShowDropdown(false);
-            setSelectedMovieId(null);
-            console.log("delay active");
-          }, 2000); // 2000 milliseconds = 2 seconds
     
-          return () => clearTimeout(delay); // Clear the timeout on unmount or when selecting a new movie
-        }
-      }, [selectedMovieId]);
-
-
+  
       const handleResultClick = (movieId) => {
         try {
           setSelectedMovieId(movieId);
@@ -107,12 +60,10 @@ const Header = ({ isVisible }) => {
                 <div className="search__main_container" style={{ display: isVisible ? 'block' : 'none' }}>
                 <div className="search__bar">
       <input
-        placeholder="What do you want to watch?"
-        className="search__input"
+      placeholder="Search by name"
+       className="search__input"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onFocus={() => setShowDropdown(true)}
-        onBlur={() => setShowDropdown(false)}
+        onChange={handleSearchChange}
       />
       <span>
         <img
@@ -127,7 +78,6 @@ const Header = ({ isVisible }) => {
           {movieList.map((movie) => (
             
             <div key={movie.id} >
-                 {/* <Link key={movie.id} style={{textDecoration:"none",color:"black", zIndex:"100000"}} to={`/movies/${movie.id}`} onClick={() => handleResultClick(movie.id)}> */}
                   <div className="search__result">
               <img className="search__img"
                 src={`https://image.tmdb.org/t/p/w92/${movie.poster_path}`}
@@ -135,7 +85,7 @@ const Header = ({ isVisible }) => {
               />
               <span className="search__title">{movie.title}</span>
               </div>
-              {/* </Link> */}
+            
             </div>
           ))}
         </div>
@@ -145,7 +95,6 @@ const Header = ({ isVisible }) => {
                 <img className="signIn__img1" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695108712/Zuri-HNG/pngfind.com-full-screen-icon-png-4181640_fsx9m7.png"/>
                 <img className="signIn__img2" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695108751/Zuri-HNG/kev5k761eptnef2prduef53thg_irc3nr.png"/>
                 {currentUser ? (
-          // If currentUser exists, render the "Sign Out" button
           <div className="signIn__btn" onClick={handleSignOut}>
           <img
             className="signIn__img"
@@ -154,7 +103,6 @@ const Header = ({ isVisible }) => {
           <span>Sign Out</span>
         </div>
         ) : (
-          // If currentUser does not exist, render the "Sign In" button
           <Link to={"/rightpics/SignIn"}>
             <div className="signIn__btn">
               <img

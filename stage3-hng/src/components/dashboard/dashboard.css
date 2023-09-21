@@ -12,7 +12,7 @@
 
 .section__nav {
     margin-top: 3em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 .section__nav span{
@@ -31,5 +31,41 @@
    
     background-color: rgb(9, 163, 9);
     color:white;                                                                                                                             
+
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+
+
+
+
+    .section__nav span{
+        font-size: 0.8em;
+   
+        border-radius: 25px;
+        padding: 0.2em 1em;
+       
+        font-weight: 600;
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+        background-color: white;
+        cursor : pointer;
+    }
+
+    .dashboard__container{
+        padding: 3%;
+        padding-top: 2%;
+        margin-left: 0rem;
+     }
+     
+
+     .section__nav {
+        margin-top: 3em;
+        margin-bottom: 2em;
+    }
+    
 
 }

@@ -39,15 +39,18 @@ const Cards = ({ imageUrl, movie,
             </SkeletonTheme>
         </div>
         :
-        <div data-testid="movie-card"
-                   item={item}
-                   key={index}
-                   className="list-item"
-                   draggable
-                   onDragStart={(e) => (dragItem.current = index)}
-                   onDragEnter={(e) => (dragOverItem.current = index)}
-                   onDragEnd={handleSort}
-                   onDragOver={(e) => e.preventDefault()} >
+        <div className="card-container"
+          item={item}
+        key={index}
+        draggable
+        onDragStart={(e) => (dragItem.current = index)}
+        onDragEnter={(e) => (dragOverItem.current = index)}
+        onDragEnd={handleSort}
+        onDragOver={(e) => e.preventDefault()} 
+        
+        >
+            
+        <div data-testid="movie-card">
         
             <div className="cards flex-item">
             <div className="card__favorite">
@@ -69,7 +72,7 @@ const Cards = ({ imageUrl, movie,
                         <div data-testid="movie-title" className="cards__title">{item ? item: "ooo"}</div>
                         
                    </div>
-                   {/* < Link to={`/movies/${movie.id}`} style={{textDecoration:"none", color:"white"}}> */}
+
                 <div className="cards__overlay">
                     <div className="card__title">{item?item:""}</div>
                     <div className="card__runtime">
@@ -79,11 +82,9 @@ const Cards = ({ imageUrl, movie,
                     <div className="card__description">{movie ? movie.overview.slice(0,118)+"..." : ""}</div>
                     
                 </div>
-                {/* </Link> */}
-                     
-               
             </div>
       
+        </div>
         </div>
     }
     </>

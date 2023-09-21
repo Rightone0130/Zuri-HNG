@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase'; // Import your Firebase configuration
+import { auth } from '../../firebase'; 
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const location = useLocation();
+
+  const [error, setError] = useState(null);
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,10 +27,11 @@ function SignIn() {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Sign in successful');
       const j = "/"
-      // Redirect to the previous page if available, or some other route
+      
       const from = location.state?.from || '/rightpics/Dashboard';
-      window.location.href = from; // This is for a full page reload, use a different method if needed
+      window.location.href = from;
     } catch (error) {
+      setError(error.message);
       console.error('Error signing in:', error.message);
     }
   };
@@ -38,6 +42,8 @@ function SignIn() {
       <div className="form login_form">
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
+          {error ? <div style={{ color: 'red', fontSize: 'small' }} className="errorMessage">Username or Password incorrect</div> : null}
+
           <div className="input_box">
             <input
               type="email"

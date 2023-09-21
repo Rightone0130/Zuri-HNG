@@ -53,7 +53,7 @@ class SignUp extends Component {
       <div className="form signup_form">
         <form onSubmit={this.handleSubmit}>
           <h2>Signup</h2>
-          {this.state.error && <div className="error">{this.state.error}</div>}
+          {this.state.error && <div style={{ color: 'red', fontSize: 'small' }}  className="error">{this.state.error}</div>}
           <div className="input_box">
             <input
               type="email"

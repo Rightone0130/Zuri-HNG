@@ -24,16 +24,15 @@ function ProtectedRoutes({ element, ...rest }) {
   }, []);
 
   if (authenticated === null) {
-    // Still waiting for authentication state, you can render a loading spinner or message here
+
     return null;
   }
 
   if (authenticated === false) {
-    // User is not authenticated, redirect to the sign-in page
+  
     return <Navigate to="/rightpics/SignIn" replace state={{from: location}} />;
   }
 
-  // User is authenticated, render the protected route
   return  <Dashboard/>;
 }
 
