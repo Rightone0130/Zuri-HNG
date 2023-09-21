@@ -1,9 +1,13 @@
 import "./Header.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import React, { useState, useEffect } from "react";
+import { auth } from "../../firebase";
+
+
 
 const Header = ({ isVisible }) => {
-
+  
+  const [currentUser, setCurrentUser] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
     const [movieList, setMovieList] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -11,6 +15,32 @@ const Header = ({ isVisible }) => {
     const [shouldCloseDropdown, setShouldCloseDropdown] = useState(false);
   
 
+
+
+    const navigate = useNavigate();
+
+
+    const handleSignOut = async () => {
+      try {
+        await auth.signOut();
+        // Redirect to the index page after successful sign out
+        navigate("/");
+      } catch (error) {
+        console.error("Error signing out:", error);
+      }
+    };
+    
+  
+
+
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        setCurrentUser(user);
+      });
+
+       // Unsubscribe when the component unmounts
+    return () => unsubscribe();
+  }, []);
 
     const fetchData = async () => {
         const apiKey = 382738723073894737448;
@@ -114,12 +144,27 @@ const Header = ({ isVisible }) => {
                 <div className="signIn__section">
                 <img className="signIn__img1" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695108712/Zuri-HNG/pngfind.com-full-screen-icon-png-4181640_fsx9m7.png"/>
                 <img className="signIn__img2" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695108751/Zuri-HNG/kev5k761eptnef2prduef53thg_irc3nr.png"/>
-                <Link to={"rightpics/SignIn"}>
-                <div className="signIn__btn">
-                    <img className="signIn__img" src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695082870/member-user-personal-data-button-human-avatar-character-social-character-profile-3d-icon_92753-13151-removebg-preview-transformed_weouo4.png"/>
-                    <span>Sign in</span>
-                    </div>
-                    </Link>
+                {currentUser ? (
+          // If currentUser exists, render the "Sign Out" button
+          <div className="signIn__btn" onClick={handleSignOut}>
+          <img
+            className="signIn__img"
+            src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695082870/member-user-personal-data-button-human-avatar-character-social-character-profile-3d-icon_92753-13151-removebg-preview-transformed_weouo4.png"
+          />
+          <span>Sign Out</span>
+        </div>
+        ) : (
+          // If currentUser does not exist, render the "Sign In" button
+          <Link to={"/rightpics/SignIn"}>
+            <div className="signIn__btn">
+              <img
+                className="signIn__img"
+                src="https://res.cloudinary.com/dcntmhgwf/image/upload/v1695082870/member-user-personal-data-button-human-avatar-character-social-character-profile-3d-icon_92753-13151-removebg-preview-transformed_weouo4.png"
+              />
+              <span>Sign in</span>
+            </div>
+          </Link>
+        )}
                 </div>
                 
         </div>

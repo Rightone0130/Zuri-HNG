@@ -27,6 +27,9 @@ class SignIn extends Component {
       // Sign in the user with email and password
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Sign in successful');
+
+
+      
       // You can add a redirect or update the UI here upon successful sign-in
     } catch (error) {
       console.error('Error signing in:', error.message);
