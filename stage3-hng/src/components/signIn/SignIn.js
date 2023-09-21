@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase'; 
+import { useNavigate } from 'react-router-dom';
+
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const location = useLocation();
-
   const [error, setError] = useState(null);
 
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === 'email') {
@@ -29,7 +30,8 @@ function SignIn() {
       const j = "/"
       
       const from = location.state?.from || '/rightpics/Dashboard';
-      window.location.href = from;
+      // window.location.href = from;
+      navigate(from); 
     } catch (error) {
       setError(error.message);
       console.error('Error signing in:', error.message);

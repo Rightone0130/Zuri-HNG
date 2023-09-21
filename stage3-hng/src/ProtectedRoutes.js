@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import Dashboard from './components/dashboard/Dashboard';
 
+
 function ProtectedRoutes({ element, ...rest }) {
   const [authenticated, setAuthenticated] = useState(null);
    const location = useLocation()
@@ -33,7 +34,7 @@ function ProtectedRoutes({ element, ...rest }) {
     return <Navigate to="/rightpics/SignIn" replace state={{from: location}} />;
   }
 
-  return  <Dashboard/>;
+  return  <Dashboard />;
 }
 
 export default ProtectedRoutes;
