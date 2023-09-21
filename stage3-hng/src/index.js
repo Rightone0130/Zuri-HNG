@@ -6,6 +6,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 
 
@@ -32,10 +34,9 @@ onAuthStateChanged(auth, user => {
 })
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
+  <DndProvider backend={HTML5Backend}>
             <App />
-   
-
+            </DndProvider>,
 );
 
 

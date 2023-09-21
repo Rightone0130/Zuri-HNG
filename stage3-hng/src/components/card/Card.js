@@ -1,7 +1,20 @@
 import React, {useEffect, useState} from "react"
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
+import { useDrag, useDrop } from "react-dnd";
+import { NativeTypes } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+
 import "./card.css"
 import { Link } from "react-router-dom"
+
+
+
+
+
+const CardTypes = {
+    CARD: "card",
+  };
 
 const Cards = ({ imageUrl, movie,
     item,
@@ -27,7 +40,19 @@ const Cards = ({ imageUrl, movie,
       };
       
       const cardClass = isClicked ? "clicked-background" : "default-background"
+      const [, ref] = useDrag({
+        type: CardTypes.CARD,
+        item: { index },
+      });
     
+      const [, drop] = useDrop({
+        accept: CardTypes.CARD,
+        hover: (draggedItem) => {
+          if (draggedItem.index !== index) {
+            dragOverItem.current = index;
+          }
+        },
+      });
 
     return <>
     {
@@ -40,6 +65,7 @@ const Cards = ({ imageUrl, movie,
         </div>
         :
         <div className="card-container"
+        ref={(node) => ref(drop(node))}
           item={item}
         key={index}
         draggable
