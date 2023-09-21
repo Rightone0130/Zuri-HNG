@@ -22,7 +22,7 @@ return(
         <div class="intro-content">
             <h1>Welcome to Your Image Gallery</h1>
             <p>Explore a world of captivating images</p>
-            <Link to="/rightpics/SignIn" replace state={{from: location}} >
+            <Link to="/rightpics/SignIn"  >
             <a href="/rightpics/Dashboard" class="btn">View Gallery</a>
             </Link>
         </div>
