@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './signUp.css'
-import {auth} from '../../firebase'
+import {auth} from '../../firebase.js'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { Link } from 'react-router-dom';
 

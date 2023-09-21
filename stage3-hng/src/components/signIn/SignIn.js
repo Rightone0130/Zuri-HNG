@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "./signIn.css"
 import { Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase"; // Import your Firebase configuration
+
 
 class SignIn extends Component {
   constructor(props) {
@@ -16,11 +19,21 @@ class SignIn extends Component {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your sign-in logic here
-    console.log('Sign in form submitted:', this.state);
+    const { email, password } = this.state;
+  
+    try {
+      // Sign in the user with email and password
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log('Sign in successful');
+      // You can add a redirect or update the UI here upon successful sign-in
+    } catch (error) {
+      console.error('Error signing in:', error.message);
+      // Handle authentication error here, e.g., display an error message to the user
+    }
   };
+  
 
   render() {
     return (
