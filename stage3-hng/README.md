@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+Drag-and-Drop Image Gallery App
+Welcome to the Drag-and-Drop Image Gallery app! This application allows you to showcase a collection of images in a visually appealing way. Authenticated users can use the drag-and-drop feature to rearrange images within the gallery.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
 
-## Available Scripts
 
-In the project directory, you can run:
+Getting Started
+Prerequisites
+Installation
+Usage
+Authentication
+Image Display
+Loading State
+Search Functionality
+Drag-and-Drop
 
-### `npm start`
+Before you begin, ensure you have the following:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Node.js and npm (Node Package Manager) installed on your machine.
+Git for version control.
+An internet connection to download dependencies.
+Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository to your local machine:
 
-### `npm test`
+git clone https://github.com/your-username/drag-and-drop-gallery.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
 
-### `npm run build`
+cd drag-and-drop-gallery
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install project dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Usage
+Authentication
+To access the image gallery, you need to authenticate with the following credentials:
 
-### `npm run eject`
+Username: user@example.com
+Password: 1Password
+The authentication form includes proper validation setup with error messages. For authentication, you can use solutions like NextAuth, Auth0, Clerk, Firebase, or any other authentication service of your choice.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Image Display
+The app displays a grid layout showcasing a collection of images in a visually appealing manner. Each image is tagged for easy categorization and search.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Loading State
+When the images are not ready for display, a loading state is shown. You'll see either a skeleton loader or a loading spinner while the images are loading.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Search Functionality
+There is a search field that allows you to filter the image list based on the tags assigned to each image. Simply enter a tag keyword to filter the displayed images.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Drag-and-Drop
+You can rearrange the images within the gallery using the drag-and-drop feature. Simply click and hold an image, then move it to your desired position. Smooth animations and visual cues provide feedback during drag-and-drop interactions.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
