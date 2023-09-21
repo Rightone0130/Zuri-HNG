@@ -19,6 +19,7 @@ const CardTypes = {
 const Cards = ({ imageUrl, movie,
     item,
     index,
+    draggable,
     dragItem,
     dragOverItem,
     handleSort, Urls}) => {

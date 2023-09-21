@@ -4,7 +4,8 @@ import Siidebar from '../../components/sidebar/Sidebar';
 import ImageList from '../ImageList/ImageList'
 import Header from "../header/Header";
 import { useState } from "react";
-
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
 

@@ -2,7 +2,9 @@ import React, {useEffect, useState, useRef} from "react"
 import "./ImageList.css"
 import { useParams } from "react-router-dom"
 import Cards from "../card/Card"
-import jsonData from './images.json';
+import jsonData from './images.json';import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
 
 
 const ImageList = ({searchQuery, handleSearchChange}) => {
@@ -61,6 +63,7 @@ const ImageList = ({searchQuery, handleSearchChange}) => {
   
     
     return (
+      <DndProvider backend={HTML5Backend}>
       
         <div className="movie__list">
             <div className="list__cards">
@@ -74,6 +77,7 @@ const ImageList = ({searchQuery, handleSearchChange}) => {
     dragOverItem={dragOverItem}
     handleSort={handleSort}
     key={index}
+    draggable={true}
   />
 ))}
 
@@ -85,6 +89,7 @@ const ImageList = ({searchQuery, handleSearchChange}) => {
         
       </div>
         </div>
+        </DndProvider>
     )
 }
 
